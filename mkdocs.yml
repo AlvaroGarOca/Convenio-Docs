@@ -34,6 +34,7 @@ nav:
   - Kubernetes:
     - Nginx básico: pages/Kub1.md
     - Skaffold: pages/Kub2.md
+    - Kustomization: pages/Kub3.md
 
 theme:
   name: material

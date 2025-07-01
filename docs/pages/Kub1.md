@@ -4,8 +4,8 @@ En esta práctica, vamos a hacer una página que nos de la bienvenida, lo que se
 ### ConfigMap
 Vamos a usar un Configmap para indicarle el index.html y el contenido que queramos darle, esto lo construirá directamente en una ruta que le daremos en el siguiente yaml.
 
-!!!note "Dockerfile"
-```bash
+!!!note "ConfigMap"
+    ```bash
     apiVersion: v1
     kind: ConfigMap
     metadata:
@@ -17,7 +17,7 @@ Vamos a usar un Configmap para indicarle el index.html y el contenido que queram
         <head><title>Bienvenido</title></head>
         <body><h1>¡Bienvenido a mi web con Kubernetes y Nginx!</h1></body>
         </html>
-```
+    ```
 ### Deployment.yaml
 En este archivo es donde le damos a dar las instrucciones para que nuestro Minikube despliegue un pod, usando como contenedor la imagen de Nginx en su última versión. También, en la parte de volúmenes, vemos que le vamos a decir que el "welcome-html" es el index.html donde se guarda en Nginx por defecto y como subpath le damos también el index.html. Básicamente, le damos la llave para que la use.
 
@@ -74,6 +74,9 @@ Por último el servicio. Usaremos el tipo NodePort, ya que lo estamos haciendo e
         targetPort: 80
         nodePort: 30080
     ```
+
+!!!warning
+    Cuidado con las tabulaciones a la hora de escribir el código, ya que puede no ser correcto si no está correctamente colocado.
 
 ### Lanzando Minikube
 Una vez tenemos los tres archivos, los aplicamos con los siguientes comandos:
